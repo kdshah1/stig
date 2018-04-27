@@ -5,6 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [UNRELEASED]
 ### Updated
+-- [isuftin@usgs.gov] - STIG 5.1.3 - 5.1.7 - Change permissions for cron files from 0600 to 0700
 -- [isuftin@usgs.gov] - STIG 4.1.9 - Update audit.rules for /vat/log/wtmp and
 /var/log/btmp from session to logins
 -- [isuftin@usgs.gov] - STIG 4.1.7 - Update audit.rules with expanded MAC-policy check

@@ -38,7 +38,7 @@ end
   directory d do
     owner 'root'
     group 'root'
-    mode 0o600
+    mode 0o700
   end
 end
 

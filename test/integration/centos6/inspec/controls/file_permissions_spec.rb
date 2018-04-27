@@ -68,35 +68,35 @@ end
 describe file('/etc/cron.hourly') do
   it { should exist }
   it { should be_directory }
-  its('mode') { should cmp '0600' }
+  its('mode') { should cmp '0700' }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
 describe file('/etc/cron.daily') do
   it { should exist }
   it { should be_directory }
-  its('mode') { should cmp '0600' }
+  its('mode') { should cmp '0700' }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
 describe file('/etc/cron.weekly') do
   it { should exist }
   it { should be_directory }
-  its('mode') { should cmp '0600' }
+  its('mode') { should cmp '0700' }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
 describe file('/etc/cron.monthly') do
   it { should exist }
   it { should be_directory }
-  its('mode') { should cmp '0600' }
+  its('mode') { should cmp '0700' }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
 describe file('/etc/cron.d') do
   it { should exist }
   it { should be_directory }
-  its('mode') { should cmp '0600' }
+  its('mode') { should cmp '0700' }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
