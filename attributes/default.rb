@@ -440,7 +440,6 @@ default['sysctl']['params']['net.ipv4.conf.default.secure_redirects'] = 0
 # true = Enable IPv6 router advertisements
 default['sysctl']['params']['net.ipv6.conf.all.accept_ra'] = 0
 default['sysctl']['params']['net.ipv6.conf.default.accept_ra'] = 0
-default['sysctl']['params']['net.ipv6.route.flush'] = 1
 
 # Disable IPv6
 # false = Do not disable ipv6
@@ -1086,7 +1085,7 @@ default['stig']['login_banner']['issue_net'] = default['stig']['login_banner']['
 # inet_interfaces = all
 # inet_interfaces = $myhostname
 # inet_interfaces = $myhostname, localhost
-default['stig']['postfix']['inet_interfaces'] = ['localhost']
+default['stig']['postfix']['inet_interfaces'] = ['loopback-only']
 default['stig']['mail_transfer_agent']['inet_interfaces'] = 'localhost' # Deprecating. Use `default['stig']['postfix']['inet_interfaces']` instead
 # The soft_bounce parameter provides a limited safety net for
 # testing.  When soft_bounce is enabled, mail will remain queued that

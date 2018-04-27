@@ -5,8 +5,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [UNRELEASED]
 ### Updated
+-- [isuftin@usgs.gov] - STIG 2.2.15 - Change inet_interfaces from localhost to loopback_only
 -- [isuftin@usgs.gov] - Removed `-e` flag from proc_hard recipe's sysctl resource
-since I do not want errors from that guard ignored 
+since I do not want errors from that guard ignored
 -- [isuftin@usgs.gov] - Fixed ChefSpec test for updated functionality in proc_hard
 -- [isuftin@usgs.gov] - Fixed node concatenation in rsyslog recipe. Now no longer directly manipulating node attributes
 -- [isuftin@usgs.gov] - Updated deprecated fauxhai CnetOS 6 version from 6.7 to 6.9
