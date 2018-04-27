@@ -21,10 +21,10 @@ sysctl cookbook version >= 1.0.0
 -- [cpoma@mitre.org] - Bugfix in stig/attributes/default.rb - Errors out and sshd dies (bricking machine) on RH 7 
 when FIPS Mode is enabled. Non-FIPS compliant MACs were specified. FIPS MODE is required to be enabled - RHEL-07-021350 - CCI-002476
 Old Line: default['stig']['sshd_config']['macs'] = 'hmac-md5,hmac-sha1,hmac-ripemd160,hmac-sha1-96,hmac-md5-96'
-Replaced with: default['stig']['sshd_config']['macs'] = 'hmac-sha2-512,hmac-sha2-256'
+Replaced with: default['stig']['sshd_config']['macs'] = 'hmac-sha2-512,hmac-sha2-256,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com'
 See https://people.redhat.com/swells/scap-security-guide/tables/table-rhel7-stig.html
 See http://csrc.nist.gov/groups/STM/cmvp/documents/140-1/140sp/140sp2630.pdf
-
+- [cpoma@mitre.org] - Added "install fat /bin/true" to stig/templates/etc_modprobe.d_CIS.conf.erb. This will fully disable vfat.
 
 ## [0.6.11]
 ### Updated
