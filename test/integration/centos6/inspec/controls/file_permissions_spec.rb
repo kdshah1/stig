@@ -14,6 +14,14 @@ describe file('/etc/passwd') do
   it { should be_grouped_into 'root' }
 end
 
+describe file('/etc/passwd-') do
+  it { should exist }
+  it { should be_file }
+  its('mode') { should cmp '0644' }
+  it { should be_owned_by 'root' }
+  it { should be_grouped_into 'root' }
+end
+
 # CENTOS 9.1.5
 # CENTOS 9.1.9
 # UBUNTU 12.6

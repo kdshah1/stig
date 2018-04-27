@@ -75,6 +75,14 @@ describe 'stig::file_permissions CentOS 7.x' do
     )
   end
 
+  it 'creates file at /etc/passwd-' do
+    expect(chef_run).to create_file('/etc/passwd-').with(
+      owner: 'root',
+      group: 'root',
+      mode: 0o644
+    )
+  end
+
   it 'creates file at /etc/group' do
     expect(chef_run).to create_file('/etc/group').with(
       owner: 'root',

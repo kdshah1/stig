@@ -50,7 +50,7 @@ end
   end
 end
 
-%w[/etc/passwd /etc/group].each do |f|
+%w[/etc/passwd /etc/passwd- /etc/group].each do |f|
   file f do
     owner 'root'
     group 'root'
