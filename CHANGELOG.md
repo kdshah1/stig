@@ -4,8 +4,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [UNRELEASED]
+### Added
+-- [isuftin@usgs.gov] - STIG 6.1.6 - File permissions for /etc/passwd-
 ### Updated
 -- [isuftin@usgs.gov] - Narrowed down sshd MACs config to what works for EL6 and EL7
+-- [isuftin@usgs.gov] - STIG 6.2.2-6.2.4 - Updated grep testing criteria for audit script
 -- [isuftin@usgs.gov] - STIG 5.2.12 - Updated ClientAliveInterval to 300 and ClientAliveCountMax to 0
 -- [isuftin@usgs.gov] - STIG 5.1.3 - 5.1.7 - Change permissions for cron files from 0600 to 0700
 -- [isuftin@usgs.gov] - STIG 4.1.9 - Update audit.rules for /vat/log/wtmp and
