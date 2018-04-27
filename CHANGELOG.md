@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 -- [isuftin@usgs.gov] - STIG 6.1.6 - File permissions for /etc/passwd-
 ### Updated
+-- [isuftin@usgs.gov] - STIG 6.2.7 - Update script to check for users having a home dir
 -- [isuftin@usgs.gov] - Narrowed down sshd MACs config to what works for EL6 and EL7
 -- [isuftin@usgs.gov] - STIG 6.2.2-6.2.4 - Updated grep testing criteria for audit script
 -- [isuftin@usgs.gov] - STIG 5.2.12 - Updated ClientAliveInterval to 300 and ClientAliveCountMax to 0
