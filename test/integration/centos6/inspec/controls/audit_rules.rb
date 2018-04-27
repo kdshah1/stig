@@ -24,6 +24,7 @@ describe file('/etc/audit/audit.rules') do
   its('content') { should include('-w /etc/hosts -p wa -k system-locale') }
   its('content') { should include('-w /etc/sysconfig/network -p wa -k system-locale') }
   its('content') { should include('-w /etc/selinux/ -p wa -k MAC-policy') }
+  its('content') { should include('-w /usr/share/selinux/ -p wa -k MAC-policy') }
   its('content') { should include('-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod') }
   its('content') { should include('-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod') }
   its('content') { should include('-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=500 -F auid!=4294967295 -k perm_mod') }
@@ -40,9 +41,9 @@ describe file('/etc/audit/audit.rules') do
   its('content') { should include('-w /etc/sudoers -p wa -k actions') }
   its('content') { should include('-w /var/log/faillog -p wa -k logins') }
   its('content') { should include('-w /var/log/lastlog -p wa -k logins') }
-  its('content') { should include('-w /var/log/btmp -p wa -k session') }
+  its('content') { should include('-w /var/log/btmp -p wa -k logins') }
   its('content') { should include('-w /var/run/utmp -p wa -k session') }
-  its('content') { should include('-w /var/log/wtmp -p wa -k session') }
+  its('content') { should include('-w /var/log/wtmp -p wa -k logins') }
   its('content') { should include('-a always,exit -F arch=b64 -S mount -F auid>=500 -F auid!=4294967295 -k mounts') }
   its('content') { should include('-a always,exit -F arch=b32 -S mount -F auid>=500 -F auid!=4294967295 -k mounts') }
   its('content') { should include('-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=500 -F auid!=4294967295 -k delete') }
