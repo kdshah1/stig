@@ -26,6 +26,6 @@ node['sysctl']['params'].each do |param, value|
   sysctl_param param do
     key param
     value value
-    only_if "sysctl -n -e #{param}"
+    only_if "sysctl -n #{param}"
   end
 end
