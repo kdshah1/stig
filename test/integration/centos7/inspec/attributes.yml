@@ -28,6 +28,7 @@ audit_lines: [
   '-w /etc/hosts -p wa -k system-locale',
   '-w /etc/sysconfig/network -p wa -k system-locale',
   '-w /etc/selinux/ -p wa -k MAC-policy',
+  '-w /usr/share/selinux/ -p wa -k MAC-policy',
   '-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod',
   '-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod',
   '-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=500 -F auid!=4294967295 -k perm_mod',
