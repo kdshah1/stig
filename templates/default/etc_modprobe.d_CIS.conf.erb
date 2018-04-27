@@ -35,6 +35,7 @@ install udf /bin/true
 
 <% if node["stig"]["mount_disable"]["vfat"] -%>
 install vfat /bin/true
+install fat /bin/true
 <% end -%>
 
 <% if node["stig"]["network"]["disable_dcpp"] -%>
