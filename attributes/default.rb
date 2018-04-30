@@ -1084,7 +1084,7 @@ default['stig']['login_banner']['issue_net'] = default['stig']['login_banner']['
 #
 # inet_interfaces = all
 # inet_interfaces = $myhostname
-# inet_interfaces = $myhostname, localhost
+# inet_interfaces = $myhostname, loopback-only
 default['stig']['postfix']['inet_interfaces'] = ['loopback-only']
 default['stig']['mail_transfer_agent']['inet_interfaces'] = 'localhost' # Deprecating. Use `default['stig']['postfix']['inet_interfaces']` instead
 # The soft_bounce parameter provides a limited safety net for
