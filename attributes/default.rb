@@ -658,13 +658,12 @@ default['stig']['sshd_config']['ciphers'] = 'aes128-ctr,aes192-ctr,aes256-ctr'
 # If ClientAliveInterval is set to 15, and ClientAliveCountMax is left at the default,
 # unresponsive SSH clients will be disconnected after approximately 45 seconds.
 # This option applies to protocol version 2 only.
-# The default value is 3.
+# The default value is 0.
 default['stig']['sshd_config']['client_alive_count_max'] = 0
 
 # Sets a timeout interval in seconds after which if no data has been received from
 # the client, sshd will send a message through the encrypted channel to request
-# a response from the client. The default is 0, indicating that these messages
-# will not be sent to the client. This option applies to protocol version 2 only.
+# a response from the client. The default is 300. This option applies to protocol version 2 only.
 default['stig']['sshd_config']['client_alive_interval'] = 300
 
 # Specifies whether compression is allowed, or delayed until the user has authenticated
