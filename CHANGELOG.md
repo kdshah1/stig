@@ -4,8 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [UNRELEASED]
+### Added
+-- [isuftin@usgs.gov] - STIG 6.1.6 - File permissions for /etc/passwd-
 ### Updated
+-- [isuftin@usgs.gov] - STIG 6.2.7 - Update script to check for users having a home dir
 -- [isuftin@usgs.gov] - Narrowed down sshd MACs config to what works for EL6 and EL7
+-- [isuftin@usgs.gov] - STIG 6.2.2-6.2.4 - Updated grep testing criteria for audit script
+-- [isuftin@usgs.gov] - STIG 5.2.12 - Updated ClientAliveInterval to 300 and ClientAliveCountMax to 0
+-- [isuftin@usgs.gov] - STIG 5.1.3 - 5.1.7 - Change permissions for cron files from 0600 to 0700
+-- [isuftin@usgs.gov] - STIG 4.1.9 - Update audit.rules for /vat/log/wtmp and
+/var/log/btmp from session to logins
+-- [isuftin@usgs.gov] - STIG 4.1.7 - Update audit.rules with expanded MAC-policy check
+-- [isuftin@usgs.gov] - STIG 2.2.15 - Change inet_interfaces from localhost to loopback_only
 -- [isuftin@usgs.gov] - Removed `-e` flag from proc_hard recipe's sysctl resource
 since I do not want errors from that guard ignored
 -- [isuftin@usgs.gov] - Fixed ChefSpec test for updated functionality in proc_hard

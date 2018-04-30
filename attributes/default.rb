@@ -345,6 +345,7 @@ default['stig']['auditd']['rules'] = [
   '-w /etc/hosts -p wa -k system-locale',
   '-w /etc/sysconfig/network -p wa -k system-locale',
   '-w /etc/selinux/ -p wa -k MAC-policy',
+  '-w /usr/share/selinux/ -p wa -k MAC-policy',
   '-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod',
   '-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=500 -F auid!=4294967295 -k perm_mod',
   '-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=500 -F auid!=4294967295 -k perm_mod',
@@ -361,9 +362,9 @@ default['stig']['auditd']['rules'] = [
   '-w /etc/sudoers -p wa -k actions',
   '-w /var/log/faillog -p wa -k logins',
   '-w /var/log/lastlog -p wa -k logins',
-  '-w /var/log/btmp -p wa -k session',
+  '-w /var/log/btmp -p wa -k logins',
   '-w /var/run/utmp -p wa -k session',
-  '-w /var/log/wtmp -p wa -k session',
+  '-w /var/log/wtmp -p wa -k logins',
   '-a always,exit -F arch=b64 -S mount -F auid>=500 -F auid!=4294967295 -k mounts',
   '-a always,exit -F arch=b32 -S mount -F auid>=500 -F auid!=4294967295 -k mounts',
   '-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=500 -F auid!=4294967295 -k delete',
@@ -440,7 +441,6 @@ default['sysctl']['params']['net.ipv4.conf.default.secure_redirects'] = 0
 # true = Enable IPv6 router advertisements
 default['sysctl']['params']['net.ipv6.conf.all.accept_ra'] = 0
 default['sysctl']['params']['net.ipv6.conf.default.accept_ra'] = 0
-default['sysctl']['params']['net.ipv6.route.flush'] = 1
 
 # Disable IPv6
 # false = Do not disable ipv6
@@ -658,14 +658,13 @@ default['stig']['sshd_config']['ciphers'] = 'aes128-ctr,aes192-ctr,aes256-ctr'
 # If ClientAliveInterval is set to 15, and ClientAliveCountMax is left at the default,
 # unresponsive SSH clients will be disconnected after approximately 45 seconds.
 # This option applies to protocol version 2 only.
-# The default value is 3.
-default['stig']['sshd_config']['client_alive_count_max'] = 3
+# The default value is 0.
+default['stig']['sshd_config']['client_alive_count_max'] = 0
 
 # Sets a timeout interval in seconds after which if no data has been received from
 # the client, sshd will send a message through the encrypted channel to request
-# a response from the client. The default is 0, indicating that these messages
-# will not be sent to the client. This option applies to protocol version 2 only.
-default['stig']['sshd_config']['client_alive_interval'] = 0
+# a response from the client. The default is 300. This option applies to protocol version 2 only.
+default['stig']['sshd_config']['client_alive_interval'] = 300
 
 # Specifies whether compression is allowed, or delayed until the user has authenticated
 # successfully. The argument must be 'yes' 'delayed' or 'no' The default is 'delayed'
@@ -1085,8 +1084,8 @@ default['stig']['login_banner']['issue_net'] = default['stig']['login_banner']['
 #
 # inet_interfaces = all
 # inet_interfaces = $myhostname
-# inet_interfaces = $myhostname, localhost
-default['stig']['postfix']['inet_interfaces'] = ['localhost']
+# inet_interfaces = $myhostname, loopback-only
+default['stig']['postfix']['inet_interfaces'] = ['loopback-only']
 default['stig']['mail_transfer_agent']['inet_interfaces'] = 'localhost' # Deprecating. Use `default['stig']['postfix']['inet_interfaces']` instead
 # The soft_bounce parameter provides a limited safety net for
 # testing.  When soft_bounce is enabled, mail will remain queued that
