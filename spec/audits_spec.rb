@@ -8,15 +8,15 @@ describe 'stig::audits CentOS 7.x' do
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/passwd)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/passwd)\"").and_return(true)
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/shadow)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/shadow)\"").and_return(true)
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/group)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/group)\"").and_return(true)
   end
 
   before do
@@ -41,21 +41,21 @@ describe 'stig::audits CentOS 7.x' do
   it 'no legacy + entries exist in /etc/passwd' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/passwd').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/passwd"
+      code: "sed -i '/^\\+/ d' /etc/passwd"
     )
   end
 
   it 'no legacy + entries exist in /etc/shadow' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/shadow').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/shadow"
+      code: "sed -i '/^\\+/ d' /etc/shadow"
     )
   end
 
   it 'no legacy + entries exist in /etc/group' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/group').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/group"
+      code: "sed -i '/^\\+/ d' /etc/group"
     )
   end
 
@@ -89,15 +89,15 @@ describe 'stig::audits CentOS 6.x' do
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/passwd)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/passwd)\"").and_return(true)
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/shadow)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/shadow)\"").and_return(true)
   end
 
   before do
-    stub_command("test -n \"$(/bin/grep '^+' /etc/group)\"").and_return(true)
+    stub_command("test -n \"$(/bin/grep '^\\+' /etc/group)\"").and_return(true)
   end
 
   before do
@@ -122,21 +122,21 @@ describe 'stig::audits CentOS 6.x' do
   it 'no legacy + entries exist in /etc/passwd' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/passwd').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/passwd"
+      code: "sed -i '/^\\+/ d' /etc/passwd"
     )
   end
 
   it 'no legacy + entries exist in /etc/shadow' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/shadow').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/shadow"
+      code: "sed -i '/^\\+/ d' /etc/shadow"
     )
   end
 
   it 'no legacy + entries exist in /etc/group' do
     expect(chef_run).to run_bash('no legacy + entries exist in /etc/group').with(
       user: 'root',
-      code: "sed -i '/^+/ d' /etc/group"
+      code: "sed -i '/^\\+/ d' /etc/group"
     )
   end
 

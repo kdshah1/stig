@@ -25,19 +25,19 @@ end
 
 # CENTOS6: 9.2.2
 # UBUNTU: 13.2
-describe command("grep '^+:' /etc/passwd") do
+describe command("grep '^\\+:' /etc/passwd") do
   its(:stdout) { should match /^$/ }
 end
 
 # CENTOS6: 9.2.3
 # UBUNTU: 13.3
-describe command("grep '^+:' /etc/shadow") do
+describe command("grep '^\\+:' /etc/shadow") do
   its(:stdout) { should match /^$/ }
 end
 
 # CENTOS6: 9.2.4
 # UBUNTU: 13.4
-describe command("grep '^+:' /etc/group") do
+describe command("grep '^\\+:' /etc/group") do
   its(:stdout) { should match /^$/ }
 end
 

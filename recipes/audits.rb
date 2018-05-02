@@ -37,20 +37,20 @@ end
 
 bash 'no legacy + entries exist in /etc/passwd' do
   user 'root'
-  code "sed -i '/^+/ d' /etc/passwd"
-  only_if "test -n \"$(/bin/grep '^+' /etc/passwd)\"", user: 'root'
+  code "sed -i '/^\\+/ d' /etc/passwd"
+  only_if "test -n \"$(/bin/grep '^\\+' /etc/passwd)\"", user: 'root'
 end
 
 bash 'no legacy + entries exist in /etc/shadow' do
   user 'root'
-  code "sed -i '/^+/ d' /etc/shadow"
-  only_if "test -n \"$(/bin/grep '^+' /etc/shadow)\"", user: 'root'
+  code "sed -i '/^\\+/ d' /etc/shadow"
+  only_if "test -n \"$(/bin/grep '^\\+' /etc/shadow)\"", user: 'root'
 end
 
 bash 'no legacy + entries exist in /etc/group' do
   user 'root'
-  code "sed -i '/^+/ d' /etc/group"
-  only_if "test -n \"$(/bin/grep '^+' /etc/group)\"", user: 'root'
+  code "sed -i '/^\\+/ d' /etc/group"
+  only_if "test -n \"$(/bin/grep '^\\+' /etc/group)\"", user: 'root'
 end
 
 bash 'no UID 0 except root account exists' do
