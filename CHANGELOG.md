@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [UNRELEASED]
 ### Added
 -- [isuftin@usgs.gov] - STIG 6.1.6 - File permissions for /etc/passwd-
+-- [cpoma@mitre.org] - Added default["stig"]["mount_disable"]["disable_usb_storage"] to disable USB Storage. RHEL-06-000503 - CCI-001250
 ### Updated
 -- [isuftin@usgs.gov] - STIG 6.2.7 - Update script to check for users having a home dir
 -- [isuftin@usgs.gov] - Narrowed down sshd MACs config to what works for EL6 and EL7
