@@ -1348,6 +1348,12 @@ default['stig']['postfix']['relayhost'] = ''
 # In the left-hand side, specify an @domain.tld wild-card, or specify
 # a user@domain.tld address.
 #
+# Redhat restriction that the Postfix SMTP server applies in the context of a
+# client connection request. DISA STIG requires the system to be configured to
+# prevent unrestricted mail relaying. RHEL-07-040480 - CCI-000366
+# DISA REDHAT STIG Setting: "permit_mynetworks, reject"
+default['stig']['postfix']['smtpd_client_restrictions_rhel'] = 'permit_mynetworks, reject'
+#
 # relay_recipient_maps = hash:/etc/postfix/relay_recipients
 default['stig']['postfix']['relay_recipient_maps'] = ''
 # The in_flow_delay configuration parameter implements mail input
