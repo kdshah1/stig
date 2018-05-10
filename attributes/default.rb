@@ -1068,8 +1068,22 @@ default['stig']['login_defs']['pass_max_days'] = 60
 # Set Password Change Minimum Number of Days
 default['stig']['login_defs']['pass_min_days'] = 7
 
+# Set Password Minimum Length
+default['stig']['login_defs']['pass_min_length'] = 15
+
 # Set Password Expiring Warning Days
 default['stig']['login_defs']['pass_warn_age'] = 15
+
+# Set Default UMASK
+default['stig']['login_defs']['umask'] = '077'
+
+# Set login fail delay. STIG setting is 4
+default['stig']['login_defs']['fail_delay'] = 4
+
+# CIS Benchmark v2.2.0
+# RHEL 7: 5.4.1.4 Ensure inactive password lock is 30 days or less (Scored)
+# Set INACTIVE Days before locking out a local account
+default['stig']['login_defs']['inactive_days'] = 30
 
 # Set the login banner(s)
 default['stig']['login_banner']['motd'] = ''
