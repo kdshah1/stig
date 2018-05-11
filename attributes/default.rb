@@ -1639,3 +1639,14 @@ default['stig']['pam_d']['config']['system_auth'] = [
   'session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid',
   'session     required      pam_unix.so'
 ]
+
+# Used by the stig::local_users recipe
+default['stig']['local_users']['dirs_to_delete']['dir'] = [
+  '/usr/games',
+  '/var/games',
+  '/var/lib/games',
+  '/usr/local/games',
+  '/usr/lib/games',
+  '/usr/share/games',
+  '/usr/lib64/games'
+]
