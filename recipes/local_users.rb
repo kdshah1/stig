@@ -8,37 +8,26 @@
 # Remove Directories first, some may be related to
 # users getting deleted below.
 node.default['stig']['local_users']['dirs_to_delete']['dir'].each do |dir|
-  directory "#{dir}.to_s" do
+  directory dir do
     action :delete
   end
 end
 
-execute 'Remove the FTP User' do
-  command '/usr/sbin/userdel -r ftp'
-  only_if %(getent passwd ftp)
+node.default['stig']['local_users']['users_to_delete']['user'].each do |user|
+  user user do
+    username user
+    manage_home true
+    action  :remove
+    only_if node.default['stig']['local_users']['users_to_delete'][user].to_s
+    only_if "getent passwd #{user}"
+  end
 end
 
-execute 'Remove the Gopher User' do
-  command '/usr/sbin/userdel -r gopher'
-  only_if %(getent passwd gopher)
-end
-
-execute 'Remove the Games User' do
-  command '/usr/sbin/userdel -r games'
-  only_if %(getent passwd games)
-end
-
-execute 'Change default shell for sync user' do
-  command '/usr/bin/chsh -s /sbin/nologin sync'
-  not_if %(grep -E "(^sync(*.)+/sbin/nologin$)" /etc/passwd)
-end
-
-execute 'Change default shell for shutdown user' do
-  command '/usr/bin/chsh -s /sbin/nologin shutdown'
-  not_if %(grep -E "(^shutdown(*.)+/sbin/nologin$)" /etc/passwd)
-end
-
-execute 'Change default shell for halt user' do
-  command '/usr/bin/chsh -s /sbin/nologin halt'
-  not_if %(grep -E "(^halt(*.)+/sbin/nologin$)" /etc/passwd)
+node.default['stig']['local_users']['users_default_shell']['user'].each do |user|
+  user user do
+    username user
+    action  :modify
+    shell   '/sbin/nologin'
+    not_if  "(grep -E \"(^/#{user}/(*.)+/sbin/nologin$)\" /etc/passwd)"
+  end
 end
