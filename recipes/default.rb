@@ -111,3 +111,6 @@ include_recipe 'stig::su_restriction'
 
 # RHEL6 or any linux that does not use systemd:
 include_recipe 'stig::inittab'
+
+# RHEL7
+include_recipe 'stig::local_users'
