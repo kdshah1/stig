@@ -17,8 +17,7 @@ node['stig']['local_users']['users_to_delete']['user'].each do |user|
   user user do
     username user
     manage_home true
-    action  :remove
-    only_if node.default['stig']['local_users']['users_to_delete'][user].to_s
+    action :remove
   end
 end
 

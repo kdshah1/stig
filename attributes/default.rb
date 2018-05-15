@@ -1664,8 +1664,3 @@ default['stig']['local_users']['users_default_shell']['user'] = %w[
   shutdown
   sync
 ]
-
-# Used by the stig::local_users recipe
-default['stig']['local_users']['users_to_delete']['ftp'] = true
-default['stig']['local_users']['users_to_delete']['gopher'] = true
-default['stig']['local_users']['users_to_delete']['games'] = true
