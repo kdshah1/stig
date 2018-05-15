@@ -21,11 +21,10 @@ node['stig']['local_users']['users_to_delete']['user'].each do |user|
   end
 end
 
-node['stig']['local_users']['users_default_shell']['user'].each do |user|
+node['stig']['local_users']['nologin_shell']['user'].each do |user|
   user user do
     username user
     action  :modify
     shell   '/sbin/nologin'
-    not_if  "(grep -E \"(^/#{user}/(*.)+/sbin/nologin$)\" /etc/passwd)"
   end
 end

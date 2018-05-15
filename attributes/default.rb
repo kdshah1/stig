@@ -1659,7 +1659,7 @@ default['stig']['local_users']['users_to_delete']['user'] = %w[
 ]
 
 # Used by the stig::local_users recipe
-default['stig']['local_users']['users_default_shell']['user'] = %w[
+default['stig']['local_users']['nologin_shell']['user'] = %w[
   halt
   shutdown
   sync
