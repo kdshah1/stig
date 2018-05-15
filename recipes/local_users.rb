@@ -7,23 +7,22 @@
 #
 # Remove Directories first, some may be related to
 # users getting deleted below.
-node.default['stig']['local_users']['dirs_to_delete']['dir'].each do |dir|
+node['stig']['local_users']['dirs_to_delete']['dir'].each do |dir|
   directory dir do
     action :delete
   end
 end
 
-node.default['stig']['local_users']['users_to_delete']['user'].each do |user|
+node['stig']['local_users']['users_to_delete']['user'].each do |user|
   user user do
     username user
     manage_home true
     action  :remove
     only_if node.default['stig']['local_users']['users_to_delete'][user].to_s
-    only_if "getent passwd #{user}"
   end
 end
 
-node.default['stig']['local_users']['users_default_shell']['user'].each do |user|
+node['stig']['local_users']['users_default_shell']['user'].each do |user|
   user user do
     username user
     action  :modify
