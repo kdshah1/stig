@@ -47,6 +47,13 @@ if %w[rhel fedora centos redhat].include?(node['platform'])
       not_if { node['stig']['network']['ipv6'] == 'no' }
     end
 
+    template '/etc/sysconfig/iptables' do
+      source 'etc_sysconfig_iptables.erb'
+      user 'root'
+      group 'root'
+      mode 0o644
+      notifies :reload, 'service[iptables]', :delayed
+    end
   else
     execute 'chkconfig_ip6tables_off' do
       user 'root'
@@ -71,13 +78,5 @@ if %w[rhel fedora centos redhat].include?(node['platform'])
     group 'root'
     mode 0o644
     variables(ipv6: ipv6)
-  end
-
-  template '/etc/sysconfig/iptables' do
-    source 'etc_sysconfig_iptables.erb'
-    user 'root'
-    group 'root'
-    mode 0o644
-    notifies :reload, 'service[iptables]', :delayed
   end
 end
