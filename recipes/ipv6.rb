@@ -38,6 +38,7 @@ if %w[rhel fedora centos redhat].include?(node['platform'])
     end
 
     service 'iptables' do
+      supports restart: true, start: true, stop: true, reload: true
       action :start
     end
 
@@ -71,4 +72,12 @@ if %w[rhel fedora centos redhat].include?(node['platform'])
     mode 0o644
     variables(ipv6: ipv6)
   end
+end
+
+template '/etc/sysconfig/iptables' do
+  source 'etc_sysconfig_iptables.erb'
+  user 'root'
+  group 'root'
+  mode 0o644
+  notifies :reload, 'service[iptables]', :delayed
 end

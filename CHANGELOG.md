@@ -14,6 +14,8 @@ templates/default/etc_man.cf_rhel.erb to disable mail relaying. RHEL-07-040480 -
 -- [kdshah@mitre.org] - Added default['stig']['login_defs']['pass_min_length'],
 default['stig']['login_defs']['umask'], default['stig']['login_defs']['inactive_days'], default['stig']['login_defs']['fail_delay'] for use in templates/default/etc_default_useradd.erb and templates/default/logon_defs.erb
 -- [kdshah@mitre.org] - Added local_users recipe to remove users and folders that do not belong. Set shells for various service accounts.
+-- [kdshah@mitre.org] - Added support in stig::ipv6 for IPTables restart and rules template for 
+ V-72271: The operating system must protect against or limit the effects of Denial of Service (DoS) attacks. 
 ### Updated
 -- [isuftin@usgs.gov] - STIG 6.2.7 - Update script to check for users having a home dir
 -- [isuftin@usgs.gov] - Narrowed down sshd MACs config to what works for EL6 and EL7
