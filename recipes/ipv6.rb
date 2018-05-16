@@ -72,12 +72,12 @@ if %w[rhel fedora centos redhat].include?(node['platform'])
     mode 0o644
     variables(ipv6: ipv6)
   end
-end
 
-template '/etc/sysconfig/iptables' do
-  source 'etc_sysconfig_iptables.erb'
-  user 'root'
-  group 'root'
-  mode 0o644
-  notifies :reload, 'service[iptables]', :delayed
+  template '/etc/sysconfig/iptables' do
+    source 'etc_sysconfig_iptables.erb'
+    user 'root'
+    group 'root'
+    mode 0o644
+    notifies :reload, 'service[iptables]', :delayed
+  end
 end
