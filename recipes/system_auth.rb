@@ -71,3 +71,13 @@ template '/etc/pam.d/common-password' do
   )
   only_if { %w[debian ubuntu].include? platform }
 end
+
+template '/etc/pam.d/postlogin-ac' do
+  source 'etc_pam.d_postlogin-ac.erb'
+  owner 'root'
+  group 'root'
+  mode 0o644
+  variables(
+    postlogin_ac_rules: node['stig']['pam_d']['config']['postlogin_ac_rules']
+  )
+end
