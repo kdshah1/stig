@@ -1668,6 +1668,4 @@ default['stig']['local_users']['nologin_shell']['user'] = %w[
 default['stig']['pam_d']['config']['postlogin_ac_rules'] = [
   'session     [success=1 default=ignore] pam_succeed_if.so service !~ gdm* service !~ su* quiet',
   'session     required      pam_lastlog.so showfailed'
-  # 'session     [default=1]   pam_lastlog.so nowtmp showfailed',
-  # 'session     optional      pam_lastlog.so silent noupdate showfailed'
 ]

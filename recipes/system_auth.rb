@@ -80,4 +80,6 @@ template '/etc/pam.d/postlogin-ac' do
   variables(
     postlogin_ac_rules: node['stig']['pam_d']['config']['postlogin_ac_rules']
   )
+  only_if { node['platform_family'] == 'rhel' }
+  only_if { major_version >= 7 }
 end
